@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app">
+        <button id="themeToggle" class="theme-toggle">🌙 Dark Mode</button>
+        <h1>Pomodoro</h1>
+        <div id="timer">25:00</div>
+        <div class="controls">
+            <button id="start">Start</button>
+            <button id="pause">Pause</button>
+            <button id="reset">Reset</button>
+        </div>
+        <div class="modes">
+            <button id="pomodoro">Pomodoro (25m)</button>
+            <button id="shortBreak">Short Break (5m)</button>
+            <button id="longBreak">Long Break (15m)</button>
+        </div>
+    </div>
+    <script type="module" src="./app.js"></script>
+</body>
+</html>
