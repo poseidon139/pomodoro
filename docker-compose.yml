@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  pomodoro-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pomodoro-timer
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  # Development service (optional - uncomment to use for development)
+  # pomodoro-dev:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.dev
+  #   container_name: pomodoro-timer-dev
+  #   ports:
+  #     - "1234:1234"
+  #   volumes:
+  #     - .:/app
+  #     - /app/node_modules
+  #   environment:
+  #     - NODE_ENV=development
+  #   command: npm start

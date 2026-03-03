@@ -1,0 +1,33 @@
+# Build stage
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy source files
+COPY src ./src
+
+# Build the app
+RUN npm run build
+
+# Production stage
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Install a simple HTTP server to serve the built files
+RUN npm install -g http-server
+
+# Copy built files from builder stage
+COPY --from=builder /app/dist ./dist
+
+# Expose port
+EXPOSE 8080
+
+# Start the server
+CMD ["http-server", "dist", "-p", "8080", "-g"]
